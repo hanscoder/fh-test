@@ -41,5 +41,9 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vite-tsconfig-paths": "4.3.2"
+  },
+  "volta": {
+    "node": "18.20.3",
+    "yarn": "1.22.22"
   }
 }
