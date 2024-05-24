@@ -1,6 +1,6 @@
 import {render, screen} from "@testing-library/react";
 import RegistrationForm from "@/registration/RegistrationForm.tsx";
-import {when} from 'jest-when';
+import {verifyAllWhenMocksCalled, when} from 'jest-when';
 
 import userEvent from '@testing-library/user-event';
 
@@ -11,7 +11,7 @@ describe('Registration', () => {
             .expectCalledWith(
                 expect.objectContaining({
                     email: 'hans.sowa@polygons.at',
-                    password: 'G1234%&',
+                    password: 'gG1234%&',
                 }),
                 expect.anything(),
             )
@@ -21,6 +21,8 @@ describe('Registration', () => {
 
         await userEvent.type(screen.getByLabelText('E-Mail'), 'hans.sowa@polygons.at');
         await userEvent.type(screen.getByLabelText('Password'), 'gG1234%&');
-        await userEvent.click(screen.getByLabelText('Registrieren'));
+        await userEvent.click(screen.getByRole('button', {name: 'Registrieren'}));
+
+        verifyAllWhenMocksCalled();
     });
 });
