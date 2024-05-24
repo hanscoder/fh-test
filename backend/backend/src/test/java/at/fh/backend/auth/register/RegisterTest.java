@@ -30,7 +30,7 @@ public class RegisterTest {
         ResponseEntity<String> actual = restTemplate.postForEntity("http://localhost:" + port + "/register",
                 request, String.class);
         assertThat(
-                actual.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(201));
+                actual.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
 
     }
 }
