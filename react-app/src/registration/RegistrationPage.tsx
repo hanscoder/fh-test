@@ -9,6 +9,7 @@ const RegistrationPage = () => {
     const registrationHandler = (fields: UserPwdLoginFormFields) => {
         fetch("/api/register", {
             method: 'POST',
+            headers: new Headers({'content-type': 'application/json'}),
             body: JSON.stringify(fields)
         }).then((response) => {
             if (response.ok) {
